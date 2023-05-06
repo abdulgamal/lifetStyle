@@ -1,56 +1,59 @@
+import CartSection from "@/components/CartSection";
 import InfluencerCard from "@/components/InfluencerCard";
-import InfluencerCat from "@/components/InfluencerCat";
 import Navbar from "@/components/Navbar";
 import SocialsCard from "@/components/SocialsCard";
 import React, { useState } from "react";
-
-const products = [
-  {
-    id: 1,
-    title: "Dope Red Jordans 3",
-    img: "jordans.jpeg",
-    code: "Dope Nikes",
-  },
-  {
-    id: 2,
-    title: "Borderless Barber Shop",
-    img: "borderless.jpeg",
-    code: "Borderless",
-  },
-  {
-    id: 3,
-    title: "Dope Red Jordans 3",
-    img: "jordans.jpeg",
-    code: "Dope Nikes",
-  },
-  {
-    id: 4,
-    title: "Borderless Barber Shop",
-    img: "borderless.jpeg",
-    code: "Borderless",
-  },
-];
+import { products } from "./[slug]";
 
 const cats = [
   {
     id: 1,
-    title: "How I am dressed",
-    lists: ["Dope Nikey", "Mavado Watch", "Red Shirt"],
+    title: "How am dressed",
+    bgImg:
+      "https://plus.unsplash.com/premium_photo-1675186049406-3fabe5f387eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDU2fFM0TUtMQXNCQjc0fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    slug: "dress",
   },
   {
     id: 2,
-    title: "What I am drinking",
-    lists: ["Old Fashion", "Smoothie", "Tequila Shot"],
+    title: "What am eating",
+    bgImg:
+      "https://images.unsplash.com/photo-1682655012898-28f5c96a4c50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    slug: "eat",
   },
   {
     id: 3,
-    title: "How I am dressed",
-    lists: ["Dope Nikey", "Mavado Watch", "Red Shirt"],
+    title: "What am drinking",
+    bgImg:
+      "https://plus.unsplash.com/premium_photo-1679397827203-b80924fb2351?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDU5fHhqUFI0aGxrQkdBfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    slug: "drink",
   },
   {
     id: 4,
-    title: "What I am drinking",
-    lists: ["Old Fashion", "Smoothie", "Tequila Shot"],
+    title: "Where am hanging out",
+    bgImg:
+      "https://images.unsplash.com/photo-1682957376808-dcb27d61f95e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8TThqVmJMYlRSd3N8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    slug: "hang",
+  },
+  {
+    id: 5,
+    title: "My hair style",
+    bgImg:
+      "https://images.unsplash.com/photo-1682439263455-ad62d50ec0e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfFM0TUtMQXNCQjc0fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    slug: "hair",
+  },
+  {
+    id: 6,
+    title: "Where am vacationing",
+    bgImg:
+      "https://images.unsplash.com/photo-1682700371999-01262207ee4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDQ1fEZ6bzN6dU9ITjZ3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+    slug: "vacation",
+  },
+  {
+    id: 7,
+    title: "Where am partying at",
+    bgImg:
+      "https://images.unsplash.com/photo-1682946618072-fb615b0d0961?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8RnpvM3p1T0hONnd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+    slug: "party",
   },
 ];
 
@@ -76,27 +79,27 @@ function Influencer() {
               className={`${
                 active === "publish" &&
                 "text-blue-600 border-b-2 border-blue-600"
-              } inline-flex gap-2 p-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer`}
+              } inline-flex gap-2 p-4 rounded-t-lg cursor-pointer`}
               onClick={() => setActive("publish")}
             >
-              <span>4</span>
+              <span>{products.length}</span>
               Published
             </li>
             <li
               className={`${
                 active === "categories" &&
                 "text-blue-600 border-b-2 border-blue-600"
-              } inline-flex gap-2 p-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer`}
+              } inline-flex gap-2 p-4 rounded-t-lg cursor-pointer`}
               onClick={() => setActive("categories")}
             >
-              <span>4</span>
+              <span>{cats.length}</span>
               Categories
             </li>
             <li
               className={`${
                 active == "socials" &&
                 "text-blue-600 border-b-2 border-blue-600"
-              } inline-flex gap-2 p-4 rounded-t-lg hover:text-gray-600 hover:border-gray-300 cursor-pointer`}
+              } inline-flex gap-2 p-4 rounded-t-lg cursor-pointer`}
               onClick={() => setActive("socials")}
             >
               <span>3</span>
@@ -110,7 +113,11 @@ function Influencer() {
               <InfluencerCard product={product} key={product.id} />
             ))
           ) : active === "categories" ? (
-            cats.map((cat) => <InfluencerCat category={cat} key={cat.id} />)
+            <div className="grid grid-cols-2 gap-2">
+              {cats.map((cat) => (
+                <CartSection category={cat} key={cat.id} />
+              ))}
+            </div>
           ) : (
             <div className="my-3">
               <SocialsCard account={"Instagram"} />
